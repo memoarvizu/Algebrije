@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="memoarvizu.com.algebrije">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Vista1">
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        </activity>
+        <activity android:name=".FiguraMuestra" />
+        <activity android:name=".Resultados" />
+        <activity android:name=".Dashboard" />
+        <activity android:name=".VistaPrevia" />
+        <activity android:name=".VistaPrevia2" />
+        <activity android:name=".VistaPrevia3" />
+        <activity android:name=".Bienvenida">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
