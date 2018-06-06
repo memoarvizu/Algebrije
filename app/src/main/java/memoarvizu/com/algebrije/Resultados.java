@@ -27,7 +27,7 @@ public class Resultados extends Activity {
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_SUBJECT,shareSub);
                 //intent.putExtra(Intent.EXTRA_TEXT, "He completado la figura");
-                startActivity(Intent.createChooser(intent, "Share with"));
+                startActivity(Intent.createChooser(intent, "Compartir con"));
             }
         });
 
@@ -39,12 +39,5 @@ public class Resultados extends Activity {
             }
         });
 
-        /*Bundle datos = this.getIntent().getExtras();
-        String recuperamos_variable_integer = datos.getString("Tiempo: ");*/
-
-        /*Vista1 tiempo = (Vista1)getIntent().getExtras().getSerializable("Tiempo: ");
-
-        TextView crono = (TextView) findViewById(R.id.tActualView);
-        crono.setText((CharSequence) tiempo);*/
     }
 }

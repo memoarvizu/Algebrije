@@ -27,11 +27,9 @@ public class Vista1 extends Activity {
         botonVerde = findViewById(R.id.btnVerde);
         botonAzul = findViewById(R.id.btnAzul);
 
-        // Se define y se inicia el cronometro
+        // Se define y se inicia el cronometro al iniciar el activity
         Chronometer simpleChronometer = (Chronometer) findViewById(R.id.simpleChronometer); // initiate a chronometer
-        simpleChronometer.start(); // start a chronometer
-
-        final long tiempo = simpleChronometer.getBase(); //Se obtiene la cadena del tiempo realizado
+        simpleChronometer.start(); // iniciar chronometer
 
         //Parar el cronimetro y pasar a la pantalla de resultados al presionar el boton de finalizar
         final Button btnR = findViewById(R.id.btnFin);
@@ -43,28 +41,14 @@ public class Vista1 extends Activity {
                 simpleChronometer.stop(); // stop a chronometer
 
                 Intent intentF = new Intent(Vista1.this, Resultados.class);
-                //intentF.putExtra("Tiempo: ", tiempo);
                 startActivity(intentF);
 
             }
         });
-
-       /*Button botonRojo = (Button)findViewById(R.id.btnRojo);
-        botonRojo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });*/
     }
 
     int[] gameState = {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2};
     boolean fichaRoja = true;
-    boolean fichaVerde = true;
-    boolean fichaAzul = true;
-    boolean btnR = true;
-    boolean btnV = true;
-    boolean btnA = true;
 
     public void dropIn (View view){
         ImageView counter = (ImageView) view;
@@ -81,7 +65,7 @@ public class Vista1 extends Activity {
         gameState[tappedCounter] = ficha;
         counter.setTranslationY(-1500);
 
-        // Alternar fichas
+        // Solo alterna fichas (Rojo y verde)
         if (fichaRoja) {
             counter.setImageResource(R.drawable.crojo);
             fichaRoja = false;
@@ -92,6 +76,5 @@ public class Vista1 extends Activity {
         counter.animate().translationYBy(1500).setDuration(300);
     }
 
-    /*public void onClick(View view) {
-    }*/
+    //TODO necesito que al seleccinar un boton de color, al tocar la malla se pinte del color seleccionado
 }
