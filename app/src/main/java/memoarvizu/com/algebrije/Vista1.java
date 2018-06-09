@@ -17,6 +17,7 @@ import java.io.Serializable;
 public class Vista1 extends Activity {
     Button botonRojo, botonVerde, botonAzul;
     GridLayout malla;
+    int colorN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,32 +49,54 @@ public class Vista1 extends Activity {
     }
 
     int[] gameState = {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2};
-    boolean fichaRoja = true;
 
     public void dropIn (View view){
-        ImageView counter = (ImageView) view;
-        int tappedCounter = Integer.parseInt(counter.getTag().toString());
+        final ImageView counter = (ImageView) view;
+        final int tappedCounter = Integer.parseInt(counter.getTag().toString());
+
 
         //Hace que no se puedan sobreescribir las figuras
         if (gameState[tappedCounter] == 2){
             counter.setEnabled(false);
-
         }
 
-        int ficha = fichaRoja? 1:0;
-        Log.i("Info","Ficha selecionada: " + ficha);
-        gameState[tappedCounter] = ficha;
         counter.setTranslationY(-1500);
 
-        // Solo alterna fichas (Rojo y verde)
-        if (fichaRoja) {
+        final Button btnRo = findViewById(R.id.btnRojo);
+        btnRo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                colorN = 0;//Rojo
+            }
+        });
+
+        final Button btnVe = findViewById(R.id.btnVerde);
+        btnVe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                colorN = 1;//Verde
+            }
+        });
+
+        final Button btnAz = findViewById(R.id.btnAzul);
+        btnAz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                colorN = 2;//Azul
+            }
+        });
+
+        if (colorN==0){
             counter.setImageResource(R.drawable.crojo);
-            fichaRoja = false;
-        } else {
+            counter.animate().translationYBy(1500).setDuration(300);
+        } else if(colorN==1){
             counter.setImageResource(R.drawable.cverde);
-            fichaRoja = true;
+            counter.animate().translationYBy(1500).setDuration(300);
+        } else if (colorN==2){
+            counter.setImageResource(R.drawable.cazul);
+            counter.animate().translationYBy(1500).setDuration(300);
         }
-        counter.animate().translationYBy(1500).setDuration(300);
+
     }
 
     //TODO necesito que al seleccinar un boton de color, al tocar la malla se pinte del color seleccionado
