@@ -249,16 +249,6 @@
             android:background="@drawable/azul" />
 
         <Button
-            android:id="@+id/btnBorrar"
-            android:layout_width="38dp"
-            android:layout_height="37dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="49dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/borrador" />
-
-        <Button
 
             android:id="@+id/btnFin"
             android:layout_width="wrap_content"

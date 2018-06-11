@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class Resultados extends Activity {
+    TextView textT;
     Button btnShare, btnMenu;
     String shareSub="He completado la figura";
 
@@ -19,7 +20,13 @@ public class Resultados extends Activity {
         setContentView(R.layout.activity_resultados);
         btnShare = findViewById(R.id.buttonCompartir);
         btnMenu = findViewById(R.id.buttonMenu);
+        textT = findViewById(R.id.textTiempo);
 
+        //Se supone que esto debe recibir los datos de la actividad "Vista1"
+        Bundle datos = this.getIntent().getExtras();
+        long recupTiempo = datos.getLong("tiempo"); //hasta aqui
+
+        //Para compartir
         btnShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,6 +38,7 @@ public class Resultados extends Activity {
             }
         });
 
+        //Regresa al menu principal
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,5 +47,6 @@ public class Resultados extends Activity {
             }
         });
 
+        //TODO: mostrar el tiempo realizado en un textView o algo
     }
 }
